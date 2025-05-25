@@ -67,7 +67,7 @@ local get_new_windows_table = function()
           -- Gather up functions to use when evaluating statusline
           local window = meta.Window:new(win_id)
           local buffer = meta.Buffer:new(bufnr)
-          local items = vim.tbl_flatten(el.statusline_generator(window, buffer))
+          local items = vim.iter(el.statusline_generator(window, buffer)):flatten():totable()
 
           local p = processor.new(items, window, buffer)
 
