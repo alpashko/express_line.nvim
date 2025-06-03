@@ -153,7 +153,7 @@ el.setup = function(opts)
   opts = opts or {}
 
   local generator = opts.generator or default_statusline_generator
-  vim.validate { generator = { generator, "f" } }
+  vim.validate("generator", generator, "function")
 
   -- TODO: In the future, probably want some easier ways to give users to regenerate their statusline based on some
   -- events. For now, they can write their own autocmds or just call `require('el').regenerate(win_id, bufnr)`
